@@ -120,7 +120,8 @@ namespace DAL_BLL
                           from gv in db.GIAOVIENs
                           where l.MaKhoiLop == k.MaKhoiLop &&
                                 l.MaNamHoc == nh.MaNamHoc &&
-                                l.MaGiaoVien == gv.MaGiaoVien
+                                l.MaGiaoVien == gv.MaGiaoVien &&
+                                l.MaKhoiLop == makhoilop
                           select new
                           {
                               l.MaLop,
@@ -130,21 +131,31 @@ namespace DAL_BLL
                               l.SiSo,
                               gv.TenGiaoVien
                           };
+           
             return Lops;
         }
         //theo mã năm học
-        public IQueryable<LOP> load_dgv_Theo_MaNamHoc(string manh)
+        public dynamic load_dgv_Theo_MaNamHoc(string manh)
         {
-            return from k in db.LOPs
-                   where k.MaNamHoc == manh
-                   select k;
+            var nh = from l in db.LOPs
+                          from k in db.KHOILOPs
+                          from n in db.NAMHOCs
+                          from gv in db.GIAOVIENs
+                          where l.MaKhoiLop == k.MaKhoiLop &&
+                                l.MaNamHoc == n.MaNamHoc &&
+                                l.MaGiaoVien == gv.MaGiaoVien &&
+                                l.MaNamHoc == manh
+                          select new
+                          {
+                              l.MaLop,
+                              l.TenLop,
+                              k.TenKhoiLop,
+                              n.TenNamHoc,
+                              l.SiSo,
+                              gv.TenGiaoVien
+                          };
+            return nh;
         }
-        // theo mã giáo viên
-        public IQueryable<LOP> load_dgv_Theo_MaGiaoVien(string magv)
-        {
-            return from gv in db.LOPs
-                   where gv.MaGiaoVien == magv
-                   select gv;
-        }
+       
     }
 }

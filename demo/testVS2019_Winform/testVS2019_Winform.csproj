@@ -104,12 +104,6 @@
     <Compile Include="frmNguoiDung.Designer.cs">
       <DependentUpon>frmNguoiDung.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPhanQuyen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmPhanQuyen.Designer.cs">
-      <DependentUpon>frmPhanQuyen.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmProfile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,11 +116,53 @@
     <Compile Include="frm_ChangePassword.Designer.cs">
       <DependentUpon>frm_ChangePassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_DanToc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_DanToc.designer.cs">
+      <DependentUpon>frm_DanToc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Diem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Diem.designer.cs">
+      <DependentUpon>frm_Diem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_GiaoVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_GiaoVien.designer.cs">
+      <DependentUpon>frm_GiaoVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_HanhKiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_HanhKiem.designer.cs">
+      <DependentUpon>frm_HanhKiem.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_HocKy.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_HocKy.Designer.cs">
       <DependentUpon>frm_HocKy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_HocLuc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_HocLuc.designer.cs">
+      <DependentUpon>frm_HocLuc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_HocSinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_HocSinh.designer.cs">
+      <DependentUpon>frm_HocSinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_KetQua.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_KetQua.designer.cs">
+      <DependentUpon>frm_KetQua.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_KhoiLop.cs">
       <SubType>Form</SubType>
@@ -146,11 +182,47 @@
     <Compile Include="frm_LopHoc.Designer.cs">
       <DependentUpon>frm_LopHoc.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_MonHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_MonHoc.designer.cs">
+      <DependentUpon>frm_MonHoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_NamHoc.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_NamHoc.Designer.cs">
       <DependentUpon>frm_NamHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_NgheNghiep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_NgheNghiep.designer.cs">
+      <DependentUpon>frm_NgheNghiep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_PhanCong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_PhanCong.designer.cs">
+      <DependentUpon>frm_PhanCong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_PhanLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_PhanLop.designer.cs">
+      <DependentUpon>frm_PhanLop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_TonGiao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_TonGiao.designer.cs">
+      <DependentUpon>frm_TonGiao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_TraCuuGV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_TraCuuGV.designer.cs">
+      <DependentUpon>frm_TraCuuGV.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -163,17 +235,35 @@
     <EmbeddedResource Include="frmNguoiDung.resx">
       <DependentUpon>frmNguoiDung.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPhanQuyen.resx">
-      <DependentUpon>frmPhanQuyen.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmProfile.resx">
       <DependentUpon>frmProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_ChangePassword.resx">
       <DependentUpon>frm_ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_DanToc.resx">
+      <DependentUpon>frm_DanToc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Diem.resx">
+      <DependentUpon>frm_Diem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_GiaoVien.resx">
+      <DependentUpon>frm_GiaoVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_HanhKiem.resx">
+      <DependentUpon>frm_HanhKiem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_HocKy.resx">
       <DependentUpon>frm_HocKy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_HocLuc.resx">
+      <DependentUpon>frm_HocLuc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_HocSinh.resx">
+      <DependentUpon>frm_HocSinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_KetQua.resx">
+      <DependentUpon>frm_KetQua.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_KhoiLop.resx">
       <DependentUpon>frm_KhoiLop.cs</DependentUpon>
@@ -184,8 +274,26 @@
     <EmbeddedResource Include="frm_LopHoc.resx">
       <DependentUpon>frm_LopHoc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_MonHoc.resx">
+      <DependentUpon>frm_MonHoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_NamHoc.resx">
       <DependentUpon>frm_NamHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_NgheNghiep.resx">
+      <DependentUpon>frm_NgheNghiep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_PhanCong.resx">
+      <DependentUpon>frm_PhanCong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_PhanLop.resx">
+      <DependentUpon>frm_PhanLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_TonGiao.resx">
+      <DependentUpon>frm_TonGiao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_TraCuuGV.resx">
+      <DependentUpon>frm_TraCuuGV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

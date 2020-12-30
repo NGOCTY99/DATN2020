@@ -16,7 +16,7 @@ namespace testVS2019_Winform
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmDangNhap());
+            Application.Run(new frmNguoiDung());
 
 
         }

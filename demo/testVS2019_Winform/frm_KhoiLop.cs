@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DAL_BLL;
 using DAL_BLL.Class;
+using DAL_BLL;
 namespace testVS2019_Winform
 {
     public partial class frm_KhoiLop : Form

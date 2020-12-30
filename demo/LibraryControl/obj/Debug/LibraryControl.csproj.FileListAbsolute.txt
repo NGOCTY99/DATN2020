@@ -9,3 +9,8 @@ D:\doan\demo\LibraryControl\obj\Debug\LibraryControl.csprojAssemblyReference.cac
 D:\doan\demo\LibraryControl\obj\Debug\LibraryControl.csproj.CoreCompileInputs.cache
 D:\doan\demo\LibraryControl\obj\Debug\LibraryControl.dll
 D:\doan\demo\LibraryControl\obj\Debug\LibraryControl.pdb
+D:\GitHub\DATN\DATN2020\demo\LibraryControl\bin\Debug\LibraryControl.dll
+D:\GitHub\DATN\DATN2020\demo\LibraryControl\bin\Debug\LibraryControl.pdb
+D:\GitHub\DATN\DATN2020\demo\LibraryControl\obj\Debug\LibraryControl.csproj.CoreCompileInputs.cache
+D:\GitHub\DATN\DATN2020\demo\LibraryControl\obj\Debug\LibraryControl.dll
+D:\GitHub\DATN\DATN2020\demo\LibraryControl\obj\Debug\LibraryControl.pdb
