@@ -313,10 +313,12 @@ namespace testVS2019_Winform.Controller
             // 
             // dgvLopHoc
             // 
+            this.dgvLopHoc.AllowUserToAddRows = false;
             this.dgvLopHoc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLopHoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLopHoc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvLopHoc.Location = new System.Drawing.Point(0, 99);
+            this.dgvLopHoc.MultiSelect = false;
             this.dgvLopHoc.Name = "dgvLopHoc";
             this.dgvLopHoc.Size = new System.Drawing.Size(800, 351);
             this.dgvLopHoc.TabIndex = 18;
