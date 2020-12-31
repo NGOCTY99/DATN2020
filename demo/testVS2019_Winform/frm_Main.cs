@@ -230,6 +230,216 @@ namespace testVS2019_Winform
             showMSG();
         }
 
+        private void btnMonHoc_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = kiemtraform(typeof(frm_MonHoc));
+            if (frm == null)
+            {
+                frm_MonHoc forms = new frm_MonHoc();
+                forms.MdiParent = this;
+                forms.Show();
+            }
+            else
+            {
+                frm.Activate();
+            }
+        }
+
+        private void btnDiem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = kiemtraform(typeof(frm_Diem));
+            if (frm == null)
+            {
+                frm_Diem forms = new frm_Diem();
+                forms.MdiParent = this;
+                forms.Show();
+            }
+            else
+            {
+                frm.Activate();
+            }
+        }
+
+        private void btnKetQua_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = kiemtraform(typeof(frm_KetQua));
+            if (frm == null)
+            {
+                frm_KetQua forms = new frm_KetQua();
+                forms.MdiParent = this;
+                forms.Show();
+            }
+            else
+            {
+                frm.Activate();
+            }
+        }
+
+        private void btnHocLuc_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = kiemtraform(typeof(frm_HocLuc));
+            if (frm == null)
+            {
+                frm_HocLuc forms = new frm_HocLuc();
+                forms.MdiParent = this;
+                forms.Show();
+            }
+            else
+            {
+                frm.Activate();
+            }
+        }
+
+        private void btnHanhKiem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = kiemtraform(typeof(frm_HanhKiem));
+            if (frm == null)
+            {
+                frm_HanhKiem forms = new frm_HanhKiem();
+                forms.MdiParent = this;
+                forms.Show();
+            }
+            else
+            {
+                frm.Activate();
+            }
+        }
+
+        private void btnHocSinh_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = kiemtraform(typeof(frm_HocSinh));
+            if (frm == null)
+            {
+                frm_HocSinh forms = new frm_HocSinh();
+                forms.MdiParent = this;
+                forms.Show();
+            }
+            else
+            {
+                frm.Activate();
+            }
+        }
+
+        private void btnPhanLop_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = kiemtraform(typeof(frm_PhanLop));
+            if (frm == null)
+            {
+                frm_PhanLop forms = new frm_PhanLop();
+                forms.MdiParent = this;
+                forms.Show();
+            }
+            else
+            {
+                frm.Activate();
+            }
+        }
+
+        private void btnDanToc_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = kiemtraform(typeof(frm_DanToc));
+            if (frm == null)
+            {
+                frm_DanToc forms = new frm_DanToc();
+                forms.MdiParent = this;
+                forms.Show();
+            }
+            else
+            {
+                frm.Activate();
+            }
+        }
+
+        private void btnTonGiao_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = kiemtraform(typeof(frm_TonGiao));
+            if (frm == null)
+            {
+                frm_TonGiao forms = new frm_TonGiao();
+                forms.MdiParent = this;
+                forms.Show();
+            }
+            else
+            {
+                frm.Activate();
+            }
+        }
+
+        private void btnNgheNghiep_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = kiemtraform(typeof(frm_NgheNghiep));
+            if (frm == null)
+            {
+                frm_NgheNghiep forms = new frm_NgheNghiep();
+                forms.MdiParent = this;
+                forms.Show();
+            }
+            else
+            {
+                frm.Activate();
+            }
+        }
+
+        private void btnGiaoVien_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = kiemtraform(typeof(frm_GiaoVien));
+            if (frm == null)
+            {
+                frm_GiaoVien forms = new frm_GiaoVien();
+                forms.MdiParent = this;
+                forms.Show();
+            }
+            else
+            {
+                frm.Activate();
+            }
+        }
+
+        private void btnPhanCong_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = kiemtraform(typeof(frm_PhanCong));
+            if (frm == null)
+            {
+                frm_PhanCong forms = new frm_PhanCong();
+                forms.MdiParent = this;
+                forms.Show();
+            }
+            else
+            {
+                frm.Activate();
+            }
+        }
+
+        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = kiemtraform(typeof(frm_TraCuuGV));
+            if (frm == null)
+            {
+                frm_TraCuuGV forms = new frm_TraCuuGV();
+                forms.MdiParent = this;
+                forms.Show();
+            }
+            else
+            {
+                frm.Activate();
+            }
+        }
+
+        private void btnTraCuuHS_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = kiemtraform(typeof(frm_TraCuuHS));
+            if (frm == null)
+            {
+                frm_TraCuuHS forms = new frm_TraCuuHS();
+                forms.MdiParent = this;
+                forms.Show();
+            }
+            else
+            {
+                frm.Activate();
+            }
+        }
+
         private void btnNND_ItemClick(object sender, ItemClickEventArgs e)
         {
             //Form frm = kiemtraform(typeof(FrmNhomND));

@@ -63,8 +63,8 @@ namespace DAL_BLL.Class
         // lọc danh sách giáo viên chưa được phân công giảng dạy
         public dynamic loadGVMoi()
         {
-            var pc = (from p1 in db.PHANCONGs
-                      from p2 in db.GIAOVIENs
+            var pc = (from p2 in db.GIAOVIENs
+                      from p1 in db.PHANCONGs
                       where p1.MaGiaoVien == p2.MaGiaoVien
                       select new
                       {
@@ -73,6 +73,17 @@ namespace DAL_BLL.Class
                           p2.DienThoai,
                           p1.MaMonHoc,
                       }).ToList();
+            var pc3 = (from p1 in db.GIAOVIENs
+                       from p2 in db.MONHOCs
+                       where p1.MaMonHoc == p2.MaMonHoc
+                       select new
+                       {
+                           p1.MaGiaoVien,
+                           p1.TenGiaoVien,
+                           p1.DienThoai,
+                           p1.MaMonHoc,
+                           p2.TenMonHoc,
+                       });
 
             var pc1 = (from p1 in pc
                       from p2 in db.MONHOCs
@@ -86,18 +97,7 @@ namespace DAL_BLL.Class
                           p2.TenMonHoc,
                       }).ToList();
 
-            var pc3 = (from p1 in db.GIAOVIENs
-                       from p2 in db.MONHOCs
-                       where p1.MaMonHoc == p2.MaMonHoc
-                       select new
-                       {
-                           p1.MaGiaoVien,
-                           p1.TenGiaoVien,
-                           p1.DienThoai,
-                           p1.MaMonHoc,
-                           p2.TenMonHoc,
-                       });
-
+           
             var pc2 = pc3.Select(t => new
             {
                 t.MaGiaoVien,

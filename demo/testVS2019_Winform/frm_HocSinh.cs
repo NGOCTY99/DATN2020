@@ -19,7 +19,7 @@ namespace QLDiemTHPT_Winform
         {
             InitializeComponent();
         }
-       
+
 
         public void loadDSHS()
         {
@@ -92,10 +92,10 @@ namespace QLDiemTHPT_Winform
             LoadNNCha();
             LoadNNMe();
         }
-        
-      
 
-     
+
+
+
         private void btnRefresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frm_HocSinh_Load(sender, e);
@@ -106,15 +106,15 @@ namespace QLDiemTHPT_Winform
             txtMaHS.Enabled = true;
             btnSua.Enabled = true;
             btnLuu.Enabled = false;
-           txtMaHS.Text = dgvHocSinh.CurrentRow.Cells[1].Value.ToString();
-           txtHoTen.Text = dgvHocSinh.CurrentRow.Cells[2].Value.ToString();
+            txtMaHS.Text = dgvHocSinh.CurrentRow.Cells[1].Value.ToString();
+            txtHoTen.Text = dgvHocSinh.CurrentRow.Cells[2].Value.ToString();
             if (dgvHocSinh.CurrentRow.Cells[3].Value.ToString() == "Nam")
             {
                 rbtNam.Checked = true;
             }
             else
                 rbtNu.Checked = true;
-           txtNgaySinh.Value = DateTime.Parse(dgvHocSinh.CurrentRow.Cells[4].Value.ToString());
+            txtNgaySinh.Value = DateTime.Parse(dgvHocSinh.CurrentRow.Cells[4].Value.ToString());
             txtNoiSinh.Text = dgvHocSinh.CurrentRow.Cells[5].Value.ToString();
             cboDanToc.Text = dgvHocSinh.CurrentRow.Cells[6].Value.ToString();
             cboTonGiao.Text = dgvHocSinh.CurrentRow.Cells[7].Value.ToString();
@@ -153,7 +153,7 @@ namespace QLDiemTHPT_Winform
 
         public bool gioiTinh()
         {
-            if(rbtNam.Checked == true)
+            if (rbtNam.Checked == true)
             {
                 return true;
             }
@@ -163,7 +163,7 @@ namespace QLDiemTHPT_Winform
             }
             return false;
         }
-      
+
         private void btnLuu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try

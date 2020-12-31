@@ -56,12 +56,6 @@ namespace testVS2019_Winform.Controller
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.dgvLopHoc = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -217,6 +211,7 @@ namespace testVS2019_Winform.Controller
             this.cboKhoiLop.Name = "cboKhoiLop";
             this.cboKhoiLop.Size = new System.Drawing.Size(148, 21);
             this.cboKhoiLop.TabIndex = 8;
+            this.cboKhoiLop.SelectionChangeCommitted += new System.EventHandler(this.cboKhoiLop_SelectionChangeCommitted);
             // 
             // txtTenLop
             // 
@@ -320,55 +315,12 @@ namespace testVS2019_Winform.Controller
             // 
             this.dgvLopHoc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLopHoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLopHoc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6});
             this.dgvLopHoc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvLopHoc.Location = new System.Drawing.Point(0, 99);
             this.dgvLopHoc.Name = "dgvLopHoc";
             this.dgvLopHoc.Size = new System.Drawing.Size(800, 351);
             this.dgvLopHoc.TabIndex = 18;
             this.dgvLopHoc.SelectionChanged += new System.EventHandler(this.dgvLopHoc_SelectionChanged);
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "MaLop";
-            this.Column1.HeaderText = "Mã lớp";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "TenLop";
-            this.Column2.HeaderText = "Tên lớp";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "TenKhoiLop";
-            this.Column3.HeaderText = "Khối lớp";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "TenNamHoc";
-            this.Column4.HeaderText = "Năm học";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "SiSo";
-            this.Column5.HeaderText = "Sĩ số";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "TenGiaoVien";
-            this.Column6.HeaderText = "Giáo viên chủ nhiệm";
-            this.Column6.Name = "Column6";
             // 
             // frm_LopHoc
             // 
@@ -430,11 +382,5 @@ namespace testVS2019_Winform.Controller
         private System.Windows.Forms.ComboBox cboMaNamHoc;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
     }
 }

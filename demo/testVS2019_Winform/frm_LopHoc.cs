@@ -24,7 +24,8 @@ namespace testVS2019_Winform.Controller
         private void frm_LopHoc_Load(object sender, EventArgs e)
         {
             // load dữ liệu tên dgvLopHoc
-            dgvLopHoc.DataSource = lophoc.loadDataGridView();
+            // dgvLopHoc.DataSource = lophoc.loadDataGridView();
+            loadDSLop();
             // load dữ liệu lên cboKhoiLop
             cboKhoiLop.DataSource = lophoc.loadKhoiLop();
             cboKhoiLop.ValueMember = "MaKhoiLop";
@@ -45,12 +46,14 @@ namespace testVS2019_Winform.Controller
 
         private void dgvLopHoc_SelectionChanged(object sender, EventArgs e)
         {
+            int ss = lophoc.demSiSoLopHoc(dgvLopHoc.CurrentRow.Cells[0].Value.ToString());
             txtMaLop.Text = dgvLopHoc.CurrentRow.Cells[0].Value.ToString();
             txtTenLop.Text = dgvLopHoc.CurrentRow.Cells[1].Value.ToString();
             cboKhoiLop.Text = dgvLopHoc.CurrentRow.Cells[2].Value.ToString();
             cboMaNamHoc.Text = dgvLopHoc.CurrentRow.Cells[3].Value.ToString();
-            txtSiSo.Text = dgvLopHoc.CurrentRow.Cells[4].Value.ToString();
+           // txtSiSo.Text = dgvLopHoc.CurrentRow.Cells[4].Value.ToString();
             cboGVCN.Text = dgvLopHoc.CurrentRow.Cells[5].Value.ToString();
+            txtSiSo.Text = ss.ToString();
         }
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -146,6 +149,32 @@ namespace testVS2019_Winform.Controller
             }
         }
 
-        
+        private void cboKhoiLop_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            loadLoptheoMaKhoi();
+        }
+        public void loadDSLop()
+        {
+            DataTable Dt = new DataTable();
+            Dt.Columns.Add("Mã lớp");
+            Dt.Columns.Add("Tên lớp");
+            Dt.Columns.Add("Tên khối lớp");
+            Dt.Columns.Add("Năm học");
+            Dt.Columns.Add("Sĩ số");
+            Dt.Columns.Add("Giáo viên chủ nhiệm");
+            foreach (var item in lophoc.loaddl())
+            {
+                DataRow dr = Dt.NewRow();
+                DataGridViewRow dgvR = (DataGridViewRow)dgvLopHoc.CurrentRow;
+                dr[0] = item.MaLop;
+                dr[1] = item.TenLop;
+                dr[2] = lophoc.loadTenKhoi(item.MaKhoiLop);
+                dr[3] = lophoc.loadNamHoc(item.MaNamHoc);
+                dr[4] = lophoc.demSiSoLopHoc(item.MaLop);
+                dr[5] = lophoc.loadTenGV(item.MaGiaoVien);
+                Dt.Rows.Add(dr);
+            }
+            dgvLopHoc.DataSource = Dt;
+        }
     }
 }

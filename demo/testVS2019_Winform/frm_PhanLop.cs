@@ -42,9 +42,16 @@ namespace QLDiemTHPT_Winform
         //Load DL lên datagrid theo điều kiện lọc
         public void loadDGV()
         {
-            dgvOut.DataSource = phanlop.loadDL(cboKhoiLop.SelectedValue.ToString(),
-                                               cboLopHoc.SelectedValue.ToString(),
-                                               cboNamHoc.SelectedValue.ToString());
+            try
+            {
+                dgvOut.DataSource = phanlop.loadDL(cboKhoiLop.SelectedValue.ToString(),
+                                                   cboLopHoc.SelectedValue.ToString(),
+                                                   cboNamHoc.SelectedValue.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Dữ liệu không hợp lệ");
+            }
         }
         private void frm_PhanLop_Load(object sender, EventArgs e)
         {
