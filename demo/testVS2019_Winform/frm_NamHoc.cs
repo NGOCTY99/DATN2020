@@ -39,6 +39,7 @@ namespace QLDiemTHPT_Winform
             if(btnSua.Visibility== BarItemVisibility.Never && btnThem.Visibility== BarItemVisibility.Never)
             {
                 btnLuu.Visibility = BarItemVisibility.Never;
+                bar2.Visible = false;
             }
             if(dgvNamHoc.Visible==true)
                 dgvNamHoc.DataSource = namhoc.loadDataGridView();

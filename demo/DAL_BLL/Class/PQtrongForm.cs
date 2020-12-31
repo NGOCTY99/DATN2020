@@ -45,20 +45,30 @@ namespace DAL_BLL.Class
             }
             else
             {
-                var per = db.Permissions.SingleOrDefault(t => t.Per_Code == pername).ID_Per;
-                var kq = db.Details.SingleOrDefault(t => t.ID_NV == id && t.ID_Group == groupname && t.ID_Per == per).Action_Check;
-                if (kq == null)
+                var per1 = db.Permissions.SingleOrDefault(t => t.Per_Code == pername).ID_Per;
+                if (per1 == null)
                 {
                     return false;
                 }
                 else
                 {
-                    if (kq == false)
+                    var kq = db.Details.Single(t => t.ID_NV == id && t.ID_Group == groupname && t.ID_Per == per1).Action_Check;
+                    if (kq == null)
+                    {
                         return false;
-                    else return true;
+                    }
+                    else
+                    {
+                        if (kq == false)
+                            return false;
+                        else return true;
+                    }
                 }
             }
         }
-
+        public string loadMagv(string id)
+        {
+            return db.NGUOIDUNGs.FirstOrDefault(t => t.MaLoai == id).TenND;
+        }
     }
 }

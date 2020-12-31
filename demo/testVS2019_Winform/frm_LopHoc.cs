@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DAL_BLL;
 using DAL_BLL.Class;
+using DevExpress.XtraBars;
+
 namespace testVS2019_Winform.Controller
 {
     public partial class frm_LopHoc : Form
@@ -16,31 +18,67 @@ namespace testVS2019_Winform.Controller
 
         QLDiemTHPTDataContext db = new QLDiemTHPTDataContext();
         LopHoc_Data lophoc = new LopHoc_Data();
+        PQtrongForm pq = new PQtrongForm();
+        string idnv;
+        int group;
         public frm_LopHoc()
         {
             InitializeComponent();
         }
-        
-        private void frm_LopHoc_Load(object sender, EventArgs e)
+        public frm_LopHoc(string id,int group)
         {
-            // load dữ liệu tên dgvLopHoc
-            dgvLopHoc.DataSource = lophoc.loadDataGridView();
-            // load dữ liệu lên cboKhoiLop
-            cboKhoiLop.DataSource = lophoc.loadKhoiLop();
+            InitializeComponent();
+            this.idnv = id;
+            this.group = group;
+        }
+
+        public void loadper()
+        {
+            btnThem.Visibility = pq.loadper(idnv, group, btnThem.Name);
+            btnSua.Visibility = pq.loadper(idnv, group, btnSua.Name);
+            dgvLopHoc.Visible = pq.loaddgv(idnv, group, dgvLopHoc.Name);
+            if (btnSua.Visibility == BarItemVisibility.Never && btnThem.Visibility == BarItemVisibility.Never)
+            {
+                btnLuu.Visibility = BarItemVisibility.Never;
+                bar2.Visible = false;
+            }
+            if (dgvLopHoc.Visible == true)
+                dgvLopHoc.DataSource = lophoc.loadDataGridView(idnv, pq.loadMagv(idnv));
+        }
+
+        public void loadKhoiLop()
+        {
+            cboKhoiLop.DataSource = lophoc.loadKhoiLop(idnv, pq.loadMagv(idnv));
             cboKhoiLop.ValueMember = "MaKhoiLop";
             cboKhoiLop.DisplayMember = "TenKhoiLop";
-            //Load dữ liệu lên cboNamHoc
-            cboMaNamHoc.DataSource = lophoc.loadNamHoc();
+        }
+
+        public void loadLop()
+        {
+            cboMaNamHoc.DataSource = lophoc.loadNamHoc(idnv, pq.loadMagv(idnv));
             cboMaNamHoc.ValueMember = "MaNamHoc";
             cboMaNamHoc.DisplayMember = "TenNamHoc";
-            // Load dữ liệu lên cboGiaoVien
-            cboGVCN.DataSource = lophoc.loadGiaoVien();
-            cboGVCN.ValueMember = "MaGiaoVien";
-            cboGVCN.DisplayMember = "TenGiaoVien";
+        }
+
+        public void LoadGVCN()
+        {
+            if (idnv == "LND004")
+            {
+                cboGVCN.DataSource = lophoc.loadGiaoVien(idnv, pq.loadMagv(idnv));
+                cboGVCN.ValueMember = "MaGiaoVien";
+                cboGVCN.DisplayMember = "TenGiaoVien";
+            } 
+        }
+        private void frm_LopHoc_Load(object sender, EventArgs e)
+        {
+            loadper();
+            loadLop();
+            loadKhoiLop();
+            LoadGVCN();
         }
         public void loadLoptheoMaKhoi()
         {
-            dgvLopHoc.DataSource = lophoc.load_dgv_Theo_MaKhoiLop(cboKhoiLop.SelectedValue.ToString());
+            dgvLopHoc.DataSource = lophoc.load_dgv_Theo_MaKhoiLop(idnv, pq.loadMagv(idnv),cboKhoiLop.SelectedValue.ToString());
         }
 
         private void dgvLopHoc_SelectionChanged(object sender, EventArgs e)
@@ -98,39 +136,39 @@ namespace testVS2019_Winform.Controller
         private void btnLuu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try { 
-            int ss = int.Parse(txtSiSo.Text);
-                if (ss > 30 && ss < 45)
-                {
-                    if (txtMaLop.Enabled == false) // Trạng thái sửa
-                {
-                    if (lophoc.suaLop(txtMaLop.Text, ss, cboGVCN.SelectedValue.ToString()) == true)
-                    {
-                        MessageBox.Show("Sửa lớp học thành công");
-                        frm_LopHoc_Load(sender, e);
-                        txtMaLop.Enabled = true;
-                        txtTenLop.Enabled = true;
-                        cboMaNamHoc.Enabled = true;
-                        cboKhoiLop.Enabled = true;
-                    }
-                    else
-                        MessageBox.Show("Thất bại");
-                }    
-                else // trạng thái thêm mới
-                 {
+            //int ss = int.Parse(txtSiSo.Text);
+            //    if (ss > 30 && ss < 45)
+            //    {
+            //        if (txtMaLop.Enabled == false) // Trạng thái sửa
+            //    {
+            //        if (lophoc.suaLop(txtMaLop.Text, ss, cboGVCN.SelectedValue.ToString()) == true)
+            //        {
+            //            MessageBox.Show("Sửa lớp học thành công");
+            //            frm_LopHoc_Load(sender, e);
+            //            txtMaLop.Enabled = true;
+            //            txtTenLop.Enabled = true;
+            //            cboMaNamHoc.Enabled = true;
+            //            cboKhoiLop.Enabled = true;
+            //        }
+            //        else
+            //            MessageBox.Show("Thất bại");
+            //    }    
+            //    else // trạng thái thêm mới
+            //     {
                    
-                    if (lophoc.themLop(txtMaLop.Text, txtTenLop.Text, cboKhoiLop.SelectedValue.ToString(), cboMaNamHoc.SelectedValue.ToString(), ss, cboGVCN.SelectedValue.ToString()) == true)
-                    {
-                        MessageBox.Show("Thêm lớp học mới thành công");
-                        frm_LopHoc_Load(sender, e);
-                    }
-                    else
-                        MessageBox.Show("Lớp học này đã có");
-                  }
-                }
-                else
-                {
-                    MessageBox.Show("Sỉ số lớp học tối thiểu 30, tối đa 45 học sinh");
-                }
+            //        if (lophoc.themLop(txtMaLop.Text, txtTenLop.Text, cboKhoiLop.SelectedValue.ToString(), cboMaNamHoc.SelectedValue.ToString(), ss, cboGVCN.SelectedValue.ToString()) == true)
+            //        {
+            //            MessageBox.Show("Thêm lớp học mới thành công");
+            //            frm_LopHoc_Load(sender, e);
+            //        }
+            //        else
+            //            MessageBox.Show("Lớp học này đã có");
+            //      }
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Sỉ số lớp học tối thiểu 30, tối đa 45 học sinh");
+            //    }
             }
             catch
             {

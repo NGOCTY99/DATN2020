@@ -301,6 +301,7 @@ namespace testVS2019_Winform
             this.btnDanToc.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDanToc.ImageOptions.LargeImage")));
             this.btnDanToc.Name = "btnDanToc";
             this.btnDanToc.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            this.btnDanToc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDanToc_ItemClick);
             // 
             // btnTonGiao
             // 
@@ -427,7 +428,7 @@ namespace testVS2019_Winform
             this.barButtonItem7});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbon.MaxItemId = 43;
+            this.ribbon.MaxItemId = 45;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.PageDangNhap,
@@ -527,6 +528,16 @@ namespace testVS2019_Winform
             this.btnNND.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnNND.ImageOptions.LargeImage")));
             this.btnNND.Name = "btnNND";
             this.btnNND.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNND_ItemClick);
+            // 
+            // btnRole
+            // 
+            this.btnRole.Id = 43;
+            this.btnRole.Name = "btnRole";
+            // 
+            // btnPermission
+            // 
+            this.btnPermission.Id = 44;
+            this.btnPermission.Name = "btnPermission";
             // 
             // btnTacVu
             // 

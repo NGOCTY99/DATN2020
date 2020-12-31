@@ -9,50 +9,70 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DAL_BLL;
 using DAL_BLL.Class;
+using DevExpress.XtraBars;
+
 namespace QLDiemTHPT_Winform
 {
     public partial class frm_DanToc : Form
     {
         QLDiemTHPTDataContext db = new QLDiemTHPTDataContext();
         DanToc_Data dantoc = new DanToc_Data();
+        PQtrongForm pq = new PQtrongForm();
+        string id;
+        int group;
         public frm_DanToc()
         {
             InitializeComponent();
+        }
+        public frm_DanToc(string idnv, int group)
+        {
+            InitializeComponent();
+            this.id = idnv;
+            this.group = group;
+        }
+
+        public void loadper()
+        {
+            btnThem.Visibility = pq.loadper(id, group, btnThem.Name);
+            btnSua.Visibility = pq.loadper(id, group, btnSua.Name);
+            dgvDanToc.Visible = pq.loaddgv(id, group, dgvDanToc.Name);
+            if (btnSua.Visibility == BarItemVisibility.Never && btnThem.Visibility == BarItemVisibility.Never)
+            {
+                btnLuu.Visibility = BarItemVisibility.Never;
+                bar2.Visible = false;
+            }
+            if (dgvDanToc.Visible == true)
+                dgvDanToc.DataSource = dantoc.load_datagridview();
         }
 
         public void loadDL()
         {
             dgvDanToc.DataSource = dantoc.load_datagridview();
         }
+
         private void frm_DanToc_Load(object sender, EventArgs e)
         {
-            btnLuu.Enabled = false;
-            btnSua.Enabled = false;
-            loadDL();
+            txtMaDT.Enabled = txtTenDT.Enabled = false;
+            loadper();
         }
 
         private void dgvDanToc_SelectionChanged(object sender, EventArgs e)
         {
-            btnSua.Enabled = true;
-
             txtMaDT.Text = dgvDanToc.CurrentRow.Cells[0].Value.ToString();
             txtTenDT.Text = dgvDanToc.CurrentRow.Cells[1].Value.ToString();
         }
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            btnLuu.Enabled = true;
-            btnSua.Enabled = false;
             txtMaDT.Text = "";
             txtTenDT.Text = "";
-            txtMaDT.Enabled = true;
+            txtMaDT.Enabled = txtTenDT.Enabled = true;
             txtMaDT.Focus();
         }
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            btnLuu.Enabled = true;
-            txtMaDT.Enabled = false;
+            txtTenDT.Enabled = true;
         }
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -64,41 +84,33 @@ namespace QLDiemTHPT_Winform
         {
             try
             {
-                if (txtMaDT.Enabled == false) // trạng thái sửa
+                if (txtMaDT.Text != "" && txtTenDT.Text != "")
                 {
-                    if (dantoc.suaDT(txtMaDT.Text, txtTenDT.Text) == true)
+                    if (btnThem.Visibility == BarItemVisibility.Always && btnSua.Visibility == BarItemVisibility.Never)
                     {
-                        MessageBox.Show("Sửa dân tộc thành công");
-                        loadDL();
-                        txtMaDT.Enabled = true;
+                        dantoc.themDT(txtMaDT.Text, txtTenDT.Text);
                     }
-                    else
+                    if (btnSua.Visibility == BarItemVisibility.Always && btnThem.Visibility == BarItemVisibility.Never)
                     {
-                        MessageBox.Show("Sửa dân tộc thất bại");
+                        dantoc.suaDT(txtMaDT.Text, txtTenDT.Text);
                     }
-                }
-                else // trạng thái thêm mới
-                {
-                    if (txtMaDT.Text != "" && txtTenDT.Text != "")
+                    else if (btnThem.Visibility == BarItemVisibility.Always && btnSua.Visibility == BarItemVisibility.Always)
                     {
-
-                        if (dantoc.themDT(txtMaDT.Text, txtTenDT.Text) == true)
+                        if (dantoc.ktkc(txtMaDT.Text) == false)
                         {
-                            MessageBox.Show("Thêm dân tộc mới thành công");
-                            loadDL();
+                            dantoc.suaDT(txtMaDT.Text, txtTenDT.Text);
                         }
                         else
-                        {
-                            MessageBox.Show("Mã dân tộc đã tồn tại");
-                        }
+                            dantoc.themDT(txtMaDT.Text, txtTenDT.Text);
                     }
-                    else
-                    {
-                        MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
-                    }
+                    loadDL();
                 }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
+                }         
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("Thất bại");
             }

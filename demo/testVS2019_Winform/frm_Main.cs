@@ -104,7 +104,7 @@ namespace testVS2019_Winform
             Form frm = kiemtraform(typeof(frm_LopHoc));
             if (frm == null)
             {
-                frm_LopHoc forms = new frm_LopHoc();
+                frm_LopHoc forms = new frm_LopHoc(db.LoaiNV(idnv), db.Group(btnLopHoc.Name));
                 forms.MdiParent = this;
                 forms.Show();
             }
@@ -228,6 +228,21 @@ namespace testVS2019_Winform
         {
             loadRole();
             showMSG();
+        }
+
+        private void btnDanToc_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form frm = kiemtraform(typeof(frm_DanToc));
+            if (frm == null)
+            {
+                frm_DanToc f = new frm_DanToc(db.LoaiNV(idnv), db.Group(btnNamHoc.Name));
+                f.MdiParent = this;
+                f.Show();
+            }
+            else
+            {
+                frm.Activate();
+            }
         }
 
         private void btnNND_ItemClick(object sender, ItemClickEventArgs e)

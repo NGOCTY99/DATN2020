@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Forms;
 namespace DAL_BLL.Class
 {
     public class DanToc_Data
@@ -17,7 +17,7 @@ namespace DAL_BLL.Class
 
         public dynamic load_datagridview()
         {
-            return from dt in db.DANTOCs select dt;
+                return from dt in db.DANTOCs select dt;
         }
         // KT khóa chính
         public bool ktkc(string madt)
@@ -34,7 +34,7 @@ namespace DAL_BLL.Class
             }
         }
         // Thêm
-        public bool themDT(string madt, string tendt)
+        public void themDT(string madt, string tendt)
         {
             if (ktkc(madt) == true)
             {
@@ -43,25 +43,25 @@ namespace DAL_BLL.Class
                 dt.TenDanToc = tendt;
                 db.DANTOCs.InsertOnSubmit(dt);
                 db.SubmitChanges();
-                return true;
+                MessageBox.Show("Thêm nhóm thành công ");
             }
             else
             {
-                return false;
+                MessageBox.Show("Thêm dân tộc thất bại");
             }
         }
         //Sửa 
-        public bool suaDT(string madt, string tendt)
+        public void suaDT(string madt, string tendt)
         {
             if (ktkc(madt) == false)
             {
                 DANTOC suadt = db.DANTOCs.Where(t => t.MaDanToc == madt).FirstOrDefault();
                 suadt.TenDanToc = tendt;
                 db.SubmitChanges();
-                return true;
+                MessageBox.Show("Cập nhật nhóm thành công");
             }
             else
-                return false;
+                MessageBox.Show("Cập nhật nhóm thất bại");
         }
 
     }
